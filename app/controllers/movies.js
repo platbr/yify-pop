@@ -42,9 +42,8 @@ var Movies = function () {
           yifyResponse = JSON.parse(body);
         } catch (error) {
           console.log(error);
-          yifyResponse.data.movie_count = 0;
-          yifyResponse.data.movies = [];
-                }
+          yifyResponse = {data: {movie_count:0, movies:[]}};
+        }
         if (yifyResponse.data.movie_count > (yify.page * 18)) {
           nextDisabled = 'disabled';
           nextPage = '#';
